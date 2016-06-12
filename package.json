@@ -1,0 +1,21 @@
+{
+  "name": "googlesheetsang",
+  "version": "1.0.0",
+  "description": "Google Sheets with Angular example",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server"
+  },
+  "keywords": [
+    "Google",
+    "Sheets",
+    "Angular"
+  ],
+  "author": "Claudio Ricci",
+  "license": "MIT",
+  "dependencies": {
+    "lite-server": "^2.2.0"
+  },
+  "devDependencies": {}
+}

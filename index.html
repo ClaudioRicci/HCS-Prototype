@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8" />
+    <title>Google Sheet Bind Example</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="styles/style.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.9/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="/Feeds/Common/headerCtrl.js"></script> 
+    <script src="/Feeds/Mobile_Details/phoneDetailsCtrl.js"></script>
+    <script src="/Feeds/Phone_Row_Props/phoneBrandsCompCtrl.js"></script>    
+  </head>
+
+<body>
+
+<div ng-controller="headerCtrl">
+  <span ng-repeat="entry in parsedEntries" 
+  style="
+    float:{{ entry['float'] }};
+    width:{{ entry['width'] }}%;
+    font-family:{{ entry['fontfamily'] }};
+    font-weight:{{ entry['fontweight'] }};
+    color:{{ entry['color'] }};
+    border-color:{{ entry['bordercolor'] }};
+    border-style:{{ entry['borderstyle'] }};
+    border-weight:{{ entry['borderweight'] }};
+    display:{{ entry['display'] }}"
+    > 
+    <span style="float:left">  
+      <h1 style="font-size:{{ entry['headerOneSize'] }}">Listing of Devices</h1>
+      <h2 style="font-size:{{ entry['headerTwoSize'] }}">Choose your device</h2> 
+    </span>
+
+  <div class="{{ entry['menuSwitch'] }}" style="float:right">
+    <p>Site Menu</p>
+    <ul>
+      <li><a href="#Link1">Link 1</a></li>
+      <li><a href="#Link2">Link 2</a></li>
+      <li><a href="#Link3">Link 3</a></li>
+    </ul>
+
+  </div>
+
+  </span>
+</div>
+
+  <div ng-controller="phoneBrandsCompCtrl">
+    <table ng-repeat="entry in parsedEntries" 
+    style="
+    float:{{ entry['float'] }};
+    width:{{ entry['width'] }}%;
+    font-family:{{ entry['fontfamily'] }};
+    font-weight:{{ entry['fontweight'] }};
+    color:{{ entry['color'] }};
+    border-color:{{ entry['bordercolor'] }};
+    border-style:{{ entry['borderstyle'] }};
+    border-weight:{{ entry['borderweight'] }};
+    display:{{ entry['display'] }}"
+    >         
+       <thead>
+        <tr>
+            <th>Brand:</th>
+            <th>Model:</th>
+            <th>Colours:</th>
+            <th>Memory:</th>
+            <th>Image:</th>
+            <th>Features</th>
+            <th>Price:</th>
+        </tr>
+       </thead>
+        <tbody ng-controller="phoneDetailsCtrl">
+          <tr ng-repeat="entry in parsedEntries">
+            <td class="brandCell">{{ entry['brand'] }}</td>       
+            <td class="modelCell">{{ entry['model'] }}</td>
+            <td class="colourCell colourPicker">
+                <span class="{{ entry['colorOne'] }}"></span>
+                <span class="{{ entry['colorTwo'] }}"></span>
+                <span class="{{ entry['colorThree'] }}"></span>
+                <span class="{{ entry['colorFour'] }}"></span>                
+            </td>
+            <td class="memoryCell">
+                <span class="{{ entry['memoryOne'] }}">{{ entry['memoryOne'] }}</span>
+                <span class="{{ entry['memoryTwo'] }}">{{ entry['memoryTwo'] }}</span>
+                <span class="{{ entry['memoryThree'] }}">{{ entry['memoryThree'] }}</span>
+                <span class="{{ entry['memoryFour'] }}">{{ entry['memoryFour'] }}</span>                
+            </td>
+            <td class="imageCell"><img src="{{ entry['image'] }}" alt="{{ entry['alt'] }}"/></td>
+            <td class="featuresCell">{{ entry['features'] }}</td>
+            <td class="priceCell">{{ entry['price'] }}</td>
+         </tr>
+        </tbody>
+     </table>
+  
+
+  <div> 
+
+</body>
+    
+
+</html>
